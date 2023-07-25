@@ -37,10 +37,6 @@ pub mod series;
 mod sql;
 pub mod utils;
 
-#[cfg(all(target_os = "linux", not(use_mimalloc)))]
-use jemallocator::Jemalloc;
-#[cfg(any(not(target_os = "linux"), use_mimalloc))]
-use mimalloc::MiMalloc;
 #[cfg(feature = "object")]
 pub use on_startup::__register_startup_deps;
 use pyo3::panic::PanicException;
@@ -57,14 +53,6 @@ use crate::expr::PyExpr;
 use crate::lazyframe::PyLazyFrame;
 use crate::lazygroupby::PyLazyGroupBy;
 use crate::series::PySeries;
-
-#[global_allocator]
-#[cfg(all(target_os = "linux", not(use_mimalloc)))]
-static ALLOC: Jemalloc = Jemalloc;
-
-#[global_allocator]
-#[cfg(any(not(target_os = "linux"), use_mimalloc))]
-static ALLOC: MiMalloc = MiMalloc;
 
 #[pymodule]
 fn polars(py: Python, m: &PyModule) -> PyResult<()> {

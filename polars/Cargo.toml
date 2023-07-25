@@ -46,13 +46,13 @@ strings = ["polars-core/strings", "polars-lazy/strings", "polars-ops/strings"]
 object = ["polars-core/object", "polars-lazy/object", "polars-io/object"]
 
 # support for arrows json parsing
-json = ["polars-io", "polars-io/json", "polars-lazy/json", "polars-sql/json", "dtype-struct"]
+#json = ["polars-io", "polars-io/json", "polars-lazy/json", "polars-sql/json", "dtype-struct"]
 
 # support for arrows ipc file parsing
-ipc = ["polars-io", "polars-io/ipc", "polars-lazy/ipc", "polars-sql/ipc"]
+#ipc = ["polars-io", "polars-io/ipc", "polars-lazy/ipc", "polars-sql/ipc"]
 
 # support for arrows streaming ipc file parsing
-ipc_streaming = ["polars-io", "polars-io/ipc_streaming", "polars-lazy/ipc"]
+#ipc_streaming = ["polars-io", "polars-io/ipc_streaming", "polars-lazy/ipc"]
 
 # support for apache avro file parsing
 avro = ["polars-io", "polars-io/avro"]
@@ -69,7 +69,7 @@ performant = [
   "dtype-struct",
   "cse",
   "polars-ops/performant",
-  "streaming",
+  #"streaming",
   "fused",
 ]
 
@@ -100,12 +100,12 @@ decompress = ["polars-io/decompress"]
 decompress-fast = ["polars-io/decompress-fast"]
 mode = ["polars-core/mode", "polars-lazy/mode"]
 take_opt_iter = ["polars-core/take_opt_iter"]
-extract_jsonpath = [
-  "polars-core/strings",
-  "polars-ops/extract_jsonpath",
-  "polars-ops/strings",
-  "polars-lazy/extract_jsonpath",
-]
+# extract_jsonpath = [
+#   "polars-core/strings",
+#   "polars-ops/extract_jsonpath",
+#   "polars-ops/strings",
+#   "polars-lazy/extract_jsonpath",
+# ]
 string_encoding = ["polars-ops/string_encoding", "polars-core/strings"]
 binary_encoding = ["polars-ops/binary_encoding"]
 groupby_list = ["polars-core/groupby_list"]
@@ -156,7 +156,7 @@ algo = ["polars-algo"]
 cse = ["polars-lazy/cse"]
 propagate_nans = ["polars-lazy/propagate_nans"]
 coalesce = ["polars-lazy/coalesce"]
-streaming = ["polars-lazy/streaming"]
+#streaming = ["polars-lazy/streaming"]
 fused = ["polars-ops/fused", "polars-lazy/fused"]
 list_sets = ["polars-lazy/list_sets"]
 list_any_all = ["polars-lazy/list_any_all"]
@@ -174,10 +174,10 @@ test = [
   "fmt",
   "diff",
   "abs",
-  "parquet",
-  "ipc",
-  "ipc_streaming",
-  "json",
+  #"parquet",
+  #"ipc",
+  #"ipc_streaming",
+  #"json",
 ]
 
 # all opt-in datatypes
@@ -257,10 +257,10 @@ dtype-struct = [
 
 docs-selection = [
   "csv",
-  "json",
-  "parquet",
-  "ipc",
-  "ipc_streaming",
+  #"json",
+  # "parquet",
+  # "ipc",
+  # "ipc_streaming",
   "dtype-full",
   "is_in",
   "rows",

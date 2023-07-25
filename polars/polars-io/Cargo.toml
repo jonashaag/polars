@@ -13,8 +13,8 @@ description = "IO related logic for the Polars DataFrame library"
 # support for arrows json parsing
 json = [
   "arrow/io_json_write",
-  "polars-json",
-  "simd-json",
+  #"polars-json",
+  #"simd-json",
   "memmap",
   "lexical",
   "lexical-core",
@@ -22,9 +22,9 @@ json = [
   "dtype-struct",
 ]
 # support for arrows ipc file parsing
-ipc = ["arrow/io_ipc", "arrow/io_ipc_compression", "memmap"]
+#ipc = ["arrow/io_ipc", "arrow/io_ipc_compression", "memmap"]
 # support for arrows streaming ipc file parsing
-ipc_streaming = ["arrow/io_ipc", "arrow/io_ipc_compression"]
+#ipc_streaming = ["arrow/io_ipc", "arrow/io_ipc_compression"]
 # support for arrow avro parsing
 avro = ["arrow/io_avro", "arrow/io_avro_compression"]
 csv = ["memmap", "lexical", "polars-core/rows", "lexical-core", "fast-float", "simdutf8"]
@@ -48,7 +48,7 @@ dtype-struct = ["polars-core/dtype-struct"]
 dtype-decimal = ["polars-core/dtype-decimal"]
 fmt = ["polars-core/fmt"]
 lazy = []
-parquet = ["polars-core/parquet", "arrow/io_parquet", "arrow/io_parquet_compression", "memmap"]
+#parquet = ["polars-core/parquet", "arrow/io_parquet", "arrow/io_parquet_compression", "memmap"]
 async = ["async-trait", "futures", "tokio", "arrow/io_ipc_write_async", "polars-error/regex"]
 cloud = ["object_store", "async", "url"]
 aws = ["object_store/aws", "cloud", "polars-core/aws"]
@@ -88,7 +88,7 @@ serde = { version = "1", features = ["derive"], optional = true }
 serde_json = { version = "1", optional = true, default-features = false, features = ["alloc", "raw_value"] }
 simd-json = { version = "0.10", optional = true, features = ["allow-non-simd", "known-key"] }
 simdutf8 = { version = "0.1", optional = true }
-tokio = { version = "1.26.0", features = ["net"], optional = true }
+tokio = { version = "1.26.0", features = ["net"], optional = true, tokio_unstable = true }
 url = { version = "2.3.1", optional = true }
 
 [dev-dependencies]

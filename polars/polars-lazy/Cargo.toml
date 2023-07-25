@@ -22,7 +22,7 @@ polars-core = { version = "0.31.1", path = "../polars-core", features = ["lazy",
 polars-io = { version = "0.31.1", path = "../polars-io", features = ["lazy", "csv"], default-features = false }
 polars-json = { version = "0.31.1", path = "../polars-json", optional = true }
 polars-ops = { version = "0.31.1", path = "../polars-ops", default-features = false }
-polars-pipe = { version = "0.31.1", path = "./polars-pipe", optional = true }
+#polars-pipe = { version = "0.31.1", path = "./polars-pipe", optional = true }
 polars-plan = { version = "0.31.1", path = "./polars-plan" }
 polars-time = { version = "0.31.1", path = "../polars-time", optional = true }
 polars-utils = { version = "0.31.1", path = "../polars-utils" }
@@ -31,36 +31,35 @@ rayon.workspace = true
 smartstring.workspace = true
 
 [features]
-nightly = ["polars-core/nightly", "polars-pipe/nightly", "polars-plan/nightly"]
+nightly = ["polars-core/nightly", "polars-plan/nightly"]
 compile = ["polars-plan/compile"]
-streaming = ["chunked_ids", "polars-pipe/compile", "polars-plan/streaming"]
+#streaming = ["chunked_ids", "polars-plan/streaming"]
 default = ["compile"]
-parquet = ["polars-core/parquet", "polars-io/parquet", "polars-plan/parquet", "polars-pipe/parquet"]
+parquet = ["polars-core/parquet", "polars-io/parquet", "polars-plan/parquet", ]
 async = [
   "polars-plan/async",
   "polars-io/cloud",
-  "polars-pipe/async",
-  "streaming",
+  #"streaming",
 ]
-ipc = ["polars-io/ipc", "polars-plan/ipc", "polars-pipe/ipc"]
-json = ["polars-io/json", "polars-plan/json", "polars-json"]
-csv = ["polars-io/csv", "polars-plan/csv", "polars-pipe/csv"]
+#ipc = ["polars-io/ipc", "polars-plan/ipc", "polars-pipe/ipc"]
+#json = ["polars-io/json", "polars-plan/json", "polars-json"]
+csv = ["polars-io/csv", "polars-plan/csv",]
 temporal = ["dtype-datetime", "dtype-date", "dtype-time", "dtype-duration", "polars-plan/temporal"]
 # debugging purposes
 fmt = ["polars-core/fmt", "polars-plan/fmt"]
 strings = ["polars-plan/strings"]
 future = []
-dtype-u8 = ["polars-plan/dtype-u8", "polars-pipe/dtype-u8"]
-dtype-u16 = ["polars-plan/dtype-u16", "polars-pipe/dtype-u16"]
-dtype-i8 = ["polars-plan/dtype-i8", "polars-pipe/dtype-i8"]
-dtype-i16 = ["polars-plan/dtype-i16", "polars-pipe/dtype-i16"]
-dtype-decimal = ["polars-plan/dtype-decimal", "polars-pipe/dtype-decimal"]
+dtype-u8 = ["polars-plan/dtype-u8", ]
+dtype-u16 = ["polars-plan/dtype-u16",]
+dtype-i8 = ["polars-plan/dtype-i8", ]
+dtype-i16 = ["polars-plan/dtype-i16",]
+dtype-decimal = ["polars-plan/dtype-decimal",]
 dtype-date = ["polars-plan/dtype-date", "polars-time/dtype-date", "temporal"]
 dtype-datetime = ["polars-plan/dtype-datetime", "polars-time/dtype-datetime", "temporal"]
 dtype-duration = ["polars-plan/dtype-duration", "polars-time/dtype-duration", "temporal"]
 dtype-time = ["polars-core/dtype-time", "temporal"]
-dtype-array = ["polars-plan/dtype-array", "polars-pipe/dtype-array", "polars-ops/dtype-array"]
-dtype-categorical = ["polars-plan/dtype-categorical", "polars-pipe/dtype-categorical"]
+dtype-array = ["polars-plan/dtype-array",  "polars-ops/dtype-array"]
+dtype-categorical = ["polars-plan/dtype-categorical", ]
 dtype-struct = ["polars-plan/dtype-struct"]
 object = ["polars-plan/object"]
 date_offset = ["polars-plan/date_offset"]
@@ -71,7 +70,7 @@ list_take = ["polars-ops/list_take", "polars-plan/list_take"]
 list_count = ["polars-ops/list_count", "polars-plan/list_count"]
 
 true_div = ["polars-plan/true_div"]
-extract_jsonpath = ["polars-plan/extract_jsonpath", "polars-ops/extract_jsonpath"]
+#extract_jsonpath = ["polars-plan/extract_jsonpath", "polars-ops/extract_jsonpath"]
 
 # operations
 approx_unique = ["polars-plan/approx_unique"]
@@ -80,7 +79,7 @@ repeat_by = ["polars-plan/repeat_by"]
 round_series = ["polars-plan/round_series", "polars-ops/round_series"]
 is_first = ["polars-plan/is_first"]
 is_unique = ["polars-plan/is_unique"]
-cross_join = ["polars-plan/cross_join", "polars-pipe/cross_join", "polars-ops/cross_join"]
+cross_join = ["polars-plan/cross_join",  "polars-ops/cross_join"]
 asof_join = ["polars-plan/asof_join", "polars-time"]
 concat_str = ["polars-plan/concat_str"]
 range = ["polars-plan/range"]
@@ -156,7 +155,7 @@ test = [
   "diff",
   "abs",
   "parquet",
-  "ipc",
+  #"ipc",
   "dtype-date",
 ]
 
@@ -164,7 +163,7 @@ test_all = [
   "test",
   "strings",
   "regex",
-  "ipc",
+  #"ipc",
   "row_hash",
   "string_justify",
   "string_from_radix",

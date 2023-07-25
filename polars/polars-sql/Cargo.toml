@@ -11,8 +11,8 @@ description = "SQL transpiler for polars. Converts SQL to polars logical plans"
 csv = ["polars-lazy/csv"]
 json = ["polars-lazy/json"]
 default = []
-ipc = ["polars-lazy/ipc"]
-parquet = ["polars-lazy/parquet"]
+#ipc = ["polars-lazy/ipc"]
+#parquet = ["polars-lazy/parquet"]
 
 [dependencies]
 polars-arrow = { version = "0.31.1", path = "../polars-arrow", features = ["like"] }

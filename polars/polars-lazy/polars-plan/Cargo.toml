@@ -43,7 +43,7 @@ default = ["compile"]
 streaming = []
 parquet = ["polars-core/parquet", "polars-io/parquet"]
 async = []
-ipc = ["polars-io/ipc"]
+#ipc = ["polars-io/ipc"]
 json = ["polars-io/json"]
 csv = ["polars-io/csv"]
 temporal = ["polars-core/temporal", "dtype-date", "dtype-datetime", "dtype-time"]
@@ -73,7 +73,7 @@ timezones = ["chrono-tz", "polars-time/timezones", "polars-core/timezones", "reg
 binary_encoding = ["polars-ops/binary_encoding"]
 true_div = []
 nightly = ["polars-utils/nightly", "polars-ops/nightly"]
-extract_jsonpath = []
+#extract_jsonpath = []
 
 # operations
 approx_unique = ["polars-ops/approx_unique"]
